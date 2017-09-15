@@ -11,7 +11,9 @@ var pts = [], // The segment vectors
 	lineSpacing = 0, // How often to put the wind vanes
 	intensity = 2.5, // Segment movement speed relative to wind strength
 	maxLen = segNum * segLength, // Total snake length
-	colorY = 128; // The intensity of the snake colors
+	colorY = 128, // The intensity of the snake colors
+	thickness = 9, // The pixel size of the largest segment
+	shrink = 0.075; // The number of pixels smaller each segment will be than the last
 
 function setup() {
 	for (var i = 0; i < segNum; i++) {
@@ -41,10 +43,11 @@ function draw() {
 		}
 	}
 
-	strokeWeight(9);
+	strokeWeight(thickness);
 	dragSegment(0, mouseX, mouseY);
 	pts[0].add(getDirVector(pts[0]));
 	for (var i = 0; i < pts.length - 1; i++) {
+		strokeWeight(thickness - shrink * i);
 		colorY++;
 		pts[i + 1].add(getDirVector(pts[i + 1]));
 		dragSegment(i + 1, pts[i].x, pts[i].y);
