@@ -20,7 +20,9 @@ function setup() {
 		pts[i] = createVector(0, 0);
 	}
 	var c = createCanvas(windowWidth, windowHeight);
-	c.elt.style.position = "absolute";
+	c.elt.style.position = "fixed";
+	c.elt.style.maxWidth = "none";
+	c.elt.style.maxHeight = "none";
 	c.elt.style.left = 0;
 	c.elt.style.top = 0;
 	c.elt.style.zIndex = -100;
