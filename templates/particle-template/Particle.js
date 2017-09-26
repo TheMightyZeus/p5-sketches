@@ -32,6 +32,28 @@ function Particle(v) {
 		point(this.position.x, this.position.y);
 	};
 
+	// This method adds drag to the particle's velocity. A drag of 1 means complete stop,
+	// a drag of 0 has no effect.
+	this.drag = function (amount) {
+		this.velocity.mult(1 - amount);
+	};
+
+	// This method checks if the particle is off the edge of the canvas
+	// and returns true if so, false otherwise.
+	this.offEdge = function () {
+		if (this.position.x < 0) {
+			return true;
+		} else if (this.position.x > width) {
+			return true;
+		}
+		if (this.position.y < 0) {
+			return true;
+		} else if (this.position.y > height) {
+			return true;
+		}
+		return false;
+	};
+
 	// The wrap method checks if the particle has gone off any of the four
 	// edges of the screen and wraps it around if so.
 	this.wrap = function () {

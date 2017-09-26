@@ -22,8 +22,13 @@ function draw() {
 		particles[i].addForce(createVector(random(-0.01, 0.01), random(-0.01, 0.01)));
 		// Update the particle's position
 		particles[i].update();
-		// If the particle has gone off the edge of the screen, wrap it around
-		particles[i].wrap();
+		// If the particle has gone off the edge of the screen...
+		if (particles[i].offEdge()) {
+			// ...start it at a random spot...
+			particles[i].position = createVector(random(width), random(height));
+			// ...and give it some random velocity
+			particles[i].velocity = createVector(random(-3, 3), random(-3, 3));
+		}
 		// Draw the particle on the screen
 		particles[i].draw();
 	}
