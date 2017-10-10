@@ -1,3 +1,16 @@
+function polygon(startX, startY, radius, points) {
+	radius = radius || 100;
+	points = points || 6;
+	var start = (points % 2) ? 0 : HALF_PI;
+	beginShape();
+	for (var i = 0; i <= points; i++) {
+		var pt = p5.Vector.fromAngle((TWO_PI / points * i) + start);
+		pt.mult(radius);
+		vertex(pt.x + startX, pt.y + startY);
+	}
+	endShape();
+}
+
 function star(startX, startY, outerRadius, innerRadius, points) {
 	outerRadius = outerRadius || 150;
 	innerRadius = innerRadius || (outerRadius * 0.375);
