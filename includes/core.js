@@ -8,4 +8,5 @@ function addInclude(path) {
 }
 addInclude('includes/shapes.js');
 addInclude('includes/Particle.js');
+addInclude('includes/p5.play.js');
 addInclude('https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.15/p5.min.js');
