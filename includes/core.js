@@ -1,4 +1,4 @@
-(function () {
+(function (root) {
 	var extraIncludes = [];
 	var init = false;
 	var inc = {
@@ -46,23 +46,21 @@
 			element.attachEvent('on' + eventName, fn);
 		}
 	}
-	addEvent(window, 'load', function () {
-		if (window.preInit && typeof window.preInit == 'function') {
-			window.preInit(inc);
-		}
-		init = true;
-		inc.addInclude('https://cdnjs.cloudflare.com/ajax/libs/p5.js/' + inc.p5Version + '/p5.min.js');
-		for (var lib in inc.includes) {
-			if (inc.includes[lib].required) {
-				if (typeof inc.includes[lib].path == 'function') {
-					inc.addInclude(inc.includes[lib].path());
-				} else {
-					inc.addInclude(inc.includes[lib].path);
-				}
+	if (root.preInit && typeof root.preInit == 'function') {
+		root.preInit(inc);
+	}
+	init = true;
+	inc.addInclude('https://cdnjs.cloudflare.com/ajax/libs/p5.js/' + inc.p5Version + '/p5.min.js');
+	for (var lib in inc.includes) {
+		if (inc.includes[lib].required) {
+			if (typeof inc.includes[lib].path == 'function') {
+				inc.addInclude(inc.includes[lib].path());
+			} else {
+				inc.addInclude(inc.includes[lib].path);
 			}
 		}
-		for (var i = 0; i < extraIncludes.length; i++) {
-			inc.addInclude(extraIncludes[i]);
-		}
-	});
-}());
+	}
+	for (var i = 0; i < extraIncludes.length; i++) {
+		inc.addInclude(extraIncludes[i]);
+	}
+}(this));
