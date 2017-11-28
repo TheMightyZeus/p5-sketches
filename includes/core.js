@@ -39,8 +39,8 @@ var includes = {
 		}
 	}
 	addEvent(window, 'load', function () {
-		if (window.init && typeof window.init == 'function') {
-			window.init();
+		if (window.preInit && typeof window.preInit == 'function') {
+			window.preInit();
 		}
 		addInclude('https://cdnjs.cloudflare.com/ajax/libs/p5.js/' + p5Version + '/p5.min.js');
 		for (var lib in includes) {
