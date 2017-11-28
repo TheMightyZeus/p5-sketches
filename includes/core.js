@@ -42,6 +42,7 @@ var includes = {
 		if (window.init && typeof window.init == 'function') {
 			window.init();
 		}
+		addInclude('https://cdnjs.cloudflare.com/ajax/libs/p5.js/' + p5Version + '/p5.min.js');
 		for (var lib in includes) {
 			if (includes[lib].required) {
 				if (typeof includes[lib].path == 'function') {
@@ -51,6 +52,5 @@ var includes = {
 				}
 			}
 		}
-		addInclude('https://cdnjs.cloudflare.com/ajax/libs/p5.js/' + p5Version + '/p5.min.js');
 	});
 }());
