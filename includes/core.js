@@ -42,8 +42,8 @@
 			},
 			"p5.gui": {
 				"path": [
-					"https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/p5.gui.js",
-					"https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/quicksettings.js"
+					"https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/quicksettings.js",
+					"https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/p5.gui.js"
 				],
 				"description": "p5.gui generates a graphical user interface for your p5.js sketches.",
 				"required": false
