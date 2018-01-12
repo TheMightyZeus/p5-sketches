@@ -7,6 +7,11 @@
 			inc.includes[name].required = true;
 		},
 		addInclude: function (path) {
+			if (Array.isArray(path)) {
+				for (var i = 0; i < path.length; i++) {
+					inc.addInclude(path[i]);
+				}
+			}
 			if (!init) {
 				extraIncludes.push(path);
 				return;
@@ -33,7 +38,15 @@
 			"p5.play": {
 				"path": "https://cdn.rawgit.com/molleindustria/p5.play/master/lib/p5.play.js",
 				"description": "p5.play provides sprites, animations, input and collision functions for games and gamelike applications. Created by Paolo Pedercini.",
-				"required": "false"
+				"required": false
+			},
+			"p5.gui": {
+				"path": [
+					"https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/p5.gui.js",
+					"https://cdn.rawgit.com/bitcraftlab/p5.gui/08ac86b7/libraries/quicksettings.js"
+				],
+				"description": "p5.gui generates a graphical user interface for your p5.js sketches.",
+				"required": false
 			}
 		}
 	};
